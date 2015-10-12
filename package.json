@@ -1,0 +1,23 @@
+{
+  "name": "innerlink",
+  "version": "1.0.0",
+  "description": "ung dung de inner link cac tu khoa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bebo84/innerlink.git"
+  },
+  "keywords": [
+    "inner",
+    "link"
+  ],
+  "author": "tran phuong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bebo84/innerlink/issues"
+  },
+  "homepage": "https://github.com/bebo84/innerlink#readme"
+}
