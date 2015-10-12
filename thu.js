@@ -10,28 +10,14 @@ var data = {
     'php' : 'http://techmaster.vn/khoa-hoc/25480/nodejs-truc-tuyen'
 };
 
-var tab = [];
 
-var string = "ngon ngu Node.js la mot ngon ngu moi. Node.js va php hoc rat thu vi Node node nodedsfsd node node node";
-
-var i = string.search(/node/ig);
-print("i: " + i);
+var string = "ngon ngu Node.js la mot ngon ngu moi. Node.js va php hoc rat thu vi Node .node nodedsfsd node node node";
 
 
-
-var result = string.match(/node/gi);
+var result = string.match(/\Wnode/gi);
 print(result);
 var numWords = result.length;
 var numChange = Math.floor((numWords * 30)/100);
-
-print(numChange);
-
-//RANDOM
-
-
-
-var newString = string.replace(/node/gi, "<a href=" + data.node + ">Node</a>");
-print(newString);
 
 //*************************
 var tabString = string.split(' ');
@@ -39,17 +25,18 @@ var tabNode = [];
 var tabRandom = [];
 for (var i = 0; i < tabString.length; i ++)
 {
-    if (tabString[i].search(/node/i) != -1 )
+    if (tabString[i].search(/node/ig) != -1 )
     {
         tabNode.push(i);
     }
 }
+print('tabNode');
 print(tabNode);
 
 for (var i = 0; i < numChange; i ++)
 {
     var tmp = Math.floor(Math.random() * numWords);
-    while (tmp in tabRandom)
+    while (tabRandom.indexOf(tmp) != -1)
     {
         tmp = Math.floor(Math.random() * numWords);
     }
@@ -59,8 +46,9 @@ print(tabRandom);
 
 for (var i = 0; i < tabRandom.length; i ++)
 {
-
-    tabString[tabNode[tabRandom[i]]] = tabString[tabNode[tabRandom[i]]].replace(/node/i, "<a href=" + data.node + ">Node</a>");
+    var pos = tabString[tabNode[tabRandom[i]]].search(/\Wnode/ig);
+    var pattenr  = tabString[tabNode[tabRandom[i]]].substring(pos, pos + 5);
+    tabString[tabNode[tabRandom[i]]] = tabString[tabNode[tabRandom[i]]].replace(/node/i, "<a href=" + data.node + ">" + pattenr + "</a>");
 }
 
 tabString = tabString.join(' ');
